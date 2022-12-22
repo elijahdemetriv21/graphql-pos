@@ -2,6 +2,7 @@
 ## Requirements
 1. Java 8
 2. MySQL Server 8.0
+3. Gradle 6.8.3
 
 ## Instructions to Execute
 
