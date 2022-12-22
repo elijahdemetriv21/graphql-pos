@@ -3,3 +3,8 @@ type Sales {
   sales: Float
   points: Float
 }
+
+input SalesInput {
+  startDateTime: String!
+  endDateTime: String!
+}

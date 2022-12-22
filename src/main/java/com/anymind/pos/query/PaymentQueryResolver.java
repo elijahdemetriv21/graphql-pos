@@ -2,14 +2,14 @@ package com.anymind.pos.query;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.anymind.pos.domain.entity.Payment;
 import com.anymind.pos.service.PaymentService;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 
-@Service
+@Component
 public class PaymentQueryResolver implements GraphQLQueryResolver {
     private PaymentService paymentService;
 

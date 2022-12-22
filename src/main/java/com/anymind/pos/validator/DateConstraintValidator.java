@@ -20,6 +20,7 @@ public class DateConstraintValidator implements ConstraintValidator<DateConstrai
     public boolean isValid(final String value, final ConstraintValidatorContext context) {
     	final DateFormat DATE_TIME_FORMAT = new SimpleDateFormat(format);
     	 try {
+    		 DATE_TIME_FORMAT.setLenient(false);
              DATE_TIME_FORMAT.parse(value);
              return true;
          } catch (ParseException e) {

@@ -19,6 +19,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Integer>{
 			"SUM(p.points) as points " + 
 			"from anymind.payment p " + 
 			"where p.date_time between ?1 and ?2 " + 
-			"group by dateTime", nativeQuery = true)
+			"group by dateTime " +
+			"order by dateTime", nativeQuery = true)
 	List<SalesInterface> fetchHourlySales(Timestamp startDateTime, Timestamp endDateTime);
 }	

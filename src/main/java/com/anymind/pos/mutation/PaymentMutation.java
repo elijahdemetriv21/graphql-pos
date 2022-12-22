@@ -3,7 +3,7 @@ package com.anymind.pos.mutation;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
 import com.anymind.pos.domain.PaymentInput;
@@ -14,7 +14,7 @@ import com.anymind.pos.service.PaymentService;
 import graphql.kickstart.tools.GraphQLMutationResolver;
 
 @Validated
-@Service
+@Component
 public class PaymentMutation implements GraphQLMutationResolver{
 
 	@Autowired

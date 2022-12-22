@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.hibernate:hibernate-validator:5.4.3.Final'
 
 	// GraphQL dependencies
@@ -26,12 +25,16 @@ dependencies {
 	compile 'org.hibernate:hibernate-c3p0:5.2.10.Final'
 	runtimeOnly 'mysql:mysql-connector-java'
 	
+	// Lombok
 	compileOnly 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
-	
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:7.0.1'
+	testImplementation 'junit:junit:4.12'
+	testImplementation 'org.mockito:mockito-core:2.15.0'
 }
 
 test {

@@ -1,10 +1,6 @@
 package com.anymind.pos.service;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,8 +46,7 @@ public class PaymentServiceImpl implements PaymentService{
 		payment.setFinalPrice(ParserUtil.parseDouble(paymentInput.getPrice() * paymentInput.getPriceModifier()));
 		payment.setPoints(ParserUtil.parseDouble(paymentInput.getPrice() * paymentMethod.getPointsModifier()));	
 		payment.setDateTime(ParserUtil.parseDateTime(paymentInput.getDateTime()));		
-		
-				
+					
 		Optional.ofNullable(paymentInput.getAdditionalItem()).ifPresent(additionalItem -> {
 			Map<String, String> additionalItemMap = parseAdditionalItem(additionalItem);
 			
@@ -76,9 +71,9 @@ public class PaymentServiceImpl implements PaymentService{
 		return salesItfList.stream()
 				.map(salesItf -> {
 					Sales sales = new Sales();
-					sales.setDateTime(salesItf.getDateTime());
-					sales.setSales(salesItf.getSales());
-					sales.setPoints(salesItf.getPoints());
+					sales.setDateTime(ParserUtil.changeDateFormat(salesItf.getDateTime()));
+					sales.setSales(ParserUtil.parseDouble(salesItf.getSales()));
+					sales.setPoints(ParserUtil.parseDouble(salesItf.getPoints()));
 					return sales;
 				})
 				.collect(Collectors.toList());

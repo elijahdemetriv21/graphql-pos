@@ -1,10 +1,12 @@
 package com.anymind.pos.domain;
 
+import java.math.BigDecimal;
+
 import lombok.Data;
 
 @Data
 public class Sales {
 	String dateTime;
-	double sales;
-	double points;
+	BigDecimal sales;
+	BigDecimal points;
 }

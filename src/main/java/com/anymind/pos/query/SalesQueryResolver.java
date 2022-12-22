@@ -5,14 +5,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import javax.validation.Valid;
+
+import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import com.anymind.pos.domain.Sales;
+import com.anymind.pos.domain.SalesInput;
 import com.anymind.pos.service.PaymentService;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 
-@Service
+@Component
+@Validated
 public class SalesQueryResolver implements GraphQLQueryResolver {
     private PaymentService paymentService;
 
@@ -20,14 +25,13 @@ public class SalesQueryResolver implements GraphQLQueryResolver {
         this.paymentService = paymentService;
     }
 
-    public List<Sales> salesFor(String startDateTime, String endDateTime) {
+    public List<Sales> sales(@Valid SalesInput salesInput) {
     	final SimpleDateFormat DATE_TIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     	Timestamp startDateTimeSQL = new Timestamp(0);
     	Timestamp endDateTimeSQL = new Timestamp(0);
-        try {
-        	
-        	startDateTimeSQL = new Timestamp(DATE_TIME_FORMAT.parse(startDateTime).getTime());
-        	endDateTimeSQL = new Timestamp(DATE_TIME_FORMAT.parse(endDateTime).getTime());
+        try {        	
+        	startDateTimeSQL = new Timestamp(DATE_TIME_FORMAT.parse(salesInput.getStartDateTime()).getTime());
+        	endDateTimeSQL = new Timestamp(DATE_TIME_FORMAT.parse(salesInput.getEndDateTime()).getTime());
         } catch (ParseException e) {
             throw new IllegalArgumentException(e);
         }
