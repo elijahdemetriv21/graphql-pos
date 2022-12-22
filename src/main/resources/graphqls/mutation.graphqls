@@ -1,0 +1,3 @@
+type Mutation {
+    createPayment(input: PaymentInput!): PaymentResponse!
+}

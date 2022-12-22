@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.5.14'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'com.anymind'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.hibernate:hibernate-validator:5.4.3.Final'
+
+	// GraphQL dependencies
+	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:8.0.0'
+	runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:8.0.0'
+
+	// Database dependencies
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile 'org.hibernate:hibernate-c3p0:5.2.10.Final'
+	runtimeOnly 'mysql:mysql-connector-java'
+	
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+}
+
+test {
+	useJUnitPlatform()
+}

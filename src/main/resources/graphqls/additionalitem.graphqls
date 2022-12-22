@@ -1,0 +1,6 @@
+input AdditionalItem {
+  courier: String
+  last4: String
+  accountInfo: String
+  chequeInfo: String
+}

@@ -1,0 +1,23 @@
+type Payment {
+  customerId: Int
+  paymentMethodCode: String
+  price: Float
+  priceModifier: Float
+  finalPrice: Float
+  points: Float
+  dateTime: String
+}
+
+input PaymentInput {
+  customerId: Int!
+  paymentMethod: String!
+  price: Float!
+  priceModifier: Float!
+  dateTime: String!
+  additionalItem: AdditionalItem
+}
+
+type PaymentResponse {
+  finalPrice: Float!
+  points: Float!
+}

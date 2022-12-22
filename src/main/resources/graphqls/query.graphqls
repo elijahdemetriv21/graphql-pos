@@ -1,0 +1,4 @@
+type Query {
+	paymentAll: [Payment]!
+	salesFor(startDateTime: String, endDateTime: String): [Sales]
+}

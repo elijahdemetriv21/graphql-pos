@@ -1,0 +1,5 @@
+type Sales {
+  dateTime: String
+  sales: Float
+  points: Float
+}
