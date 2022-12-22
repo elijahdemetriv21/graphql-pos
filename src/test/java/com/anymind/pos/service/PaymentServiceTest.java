@@ -71,6 +71,8 @@ public class PaymentServiceTest {
 					
 		Payment payment = paymentService.createPayment(paymentInputStub);
 		
+		assertEquals(12345, payment.getCustomerId());
 		assertEquals(100, payment.getFinalPrice().intValue());
+		assertEquals(5, payment.getPoints().intValue());
 	}
 }
